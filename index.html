@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Guess the Player</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; background: #f0f0f0; }
+    .hidden { display: none; }
+    #image { width: 80%; max-width: 300px; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h2>Guess the Player</h2>
+  <div id="game">
+    Score: <span id="score">0</span><br>
+    <img id="image" src="" alt="Guess image"><br>
+    <input id="guessInput" placeholder="Enter your guess">
+    <button onclick="checkGuess()">Submit</button>
+  </div>
+
+  <div id="gameOver" class="hidden">
+    <h3>Game Over</h3>
+    <p>Your score: <span id="finalScore"></span></p>
+    <p>Best score: <span id="bestScoreFinal"></span></p>
+    <button onclick="restartGame()">Try Again</button>
+  </div>
+
+  <div id="leaderboard"></div>
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+  <!-- Config must come first -->
+  <script src="firebase-config.js"></script>
+
+  <!-- Main game logic -->
+  <script src="script.js"></script>
+</body>
+</html>
