@@ -1,40 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Guess the Player</title>
   <style>
-    body { font-family: sans-serif; text-align: center; background: #f0f0f0; }
-    .hidden { display: none; }
-    #image { width: 80%; max-width: 300px; margin-top: 10px; }
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    h1 {
+      background: #333;
+      color: #fff;
+      padding: 20px;
+      margin: 0;
+    }
+    #game img {
+      width: 300px;
+      height: auto;
+      margin: 20px;
+      border: 2px solid #333;
+      border-radius: 8px;
+    }
+    input {
+      padding: 10px;
+      margin: 10px;
+      width: 200px;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      cursor: pointer;
+    }
+    .hidden {
+      display: none;
+    }
+    #leaderboard {
+      margin-top: 20px;
+      text-align: left;
+      display: inline-block;
+    }
   </style>
 </head>
 <body>
-  <h2>Guess the Player</h2>
+  <h1>Guess the Player</h1>
+
   <div id="game">
-    Score: <span id="score">0</span><br>
-    <img id="image" src="" alt="Guess image"><br>
-    <input id="guessInput" placeholder="Enter your guess">
+    <p>Score: <span id="score">0</span></p>
+    <img id="image" src="" alt="Guess the player">
+    <br>
+    <input id="guessInput" type="text" placeholder="Enter your guess">
     <button onclick="checkGuess()">Submit</button>
   </div>
 
   <div id="gameOver" class="hidden">
-    <h3>Game Over</h3>
-    <p>Your score: <span id="finalScore"></span></p>
-    <p>Best score: <span id="bestScoreFinal"></span></p>
-    <button onclick="restartGame()">Try Again</button>
+    <h2>Game Over!</h2>
+    <p>Your score: <span id="finalScore">0</span></p>
+    <p>Best score: <span id="bestScoreFinal">0</span></p>
+    <button onclick="restartGame()">Play Again</button>
   </div>
 
-  <div id="leaderboard"></div>
+  <div id="leaderboard">
+    <h3>Top Scores</h3>
+  </div>
 
-  <!-- Firebase -->
+  <!-- Firebase SDKs -->
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
 
-  <!-- Config must come first -->
-  <script src="firebase-config.js"></script>
+  <!-- Your config -->
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyBpelNGMF8mFaIubT5md12CsAXF5WCrVxg",
+      authDomain: "plsworknobugs.firebaseapp.com",
+      databaseURL: "https://plsworknobugs-default-rtdb.firebaseio.com",
+      projectId: "plsworknobugs",
+      storageBucket: "plsworknobugs.firebasestorage.app",
+      messagingSenderId: "958703698616",
+      appId: "1:958703698616:web:1a3809d7d0c71867422a4d",
+      measurementId: "G-02TWH3QT2R"
+    };
+  </script>
 
-  <!-- Main game logic -->
+  <!-- Your game logic -->
   <script src="script.js"></script>
 </body>
 </html>
